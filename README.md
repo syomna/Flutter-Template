@@ -6,6 +6,7 @@
 ## Features
 
 - **Project Structure**: Get started quickly with a well-structured project layout.
+- **Easy Integration of BLoC State Management**: Implement BLoC state management effortlessly using the provided starting point.
 - **Localization**: Support for English and Arabic languages out of the box.
 - **Basic Code**: Includes basic code templates for common app elements.
 - **Customizable**: Easily customize and extend the template to fit your project requirements.
