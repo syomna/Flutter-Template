@@ -1,6 +1,10 @@
+import 'package:bloc/bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_template/blocs/app_bloc/app_bloc.dart';
+import 'package:flutter_template/blocs/bloc_observer.dart';
 import 'package:flutter_template/screens/home.dart';
 import 'package:flutter_template/utils/helpers/local_data.dart';
 import 'package:flutter_template/utils/theme/app_theme.dart';
@@ -10,6 +14,7 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await LocalData.init();
   await EasyLocalization.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
   runApp(EasyLocalization(
       supportedLocales: const [Locale('en', ''), Locale('ar', '')],
       path: 'assets/translations',
@@ -40,7 +45,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const Home(),
+      child: BlocProvider(create: (context) => AppBloc() , child: const Home(),),
     );
   }
 }
